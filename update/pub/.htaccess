@@ -1,0 +1,8 @@
+#For performance and security reasons, this file will have no effect, it's just meant for use in development environments
+Allow from all
+
+<IfModule mod_headers.c>
+    ############################################
+    ## prevent clickjacking
+    Header set X-Frame-Options SAMEORIGIN
+</IfModule>

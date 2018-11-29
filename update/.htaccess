@@ -1,0 +1,7 @@
+#For performance and security reasons, this file will have no effect, it's just meant for use in development environments
+Order deny,allow
+Deny from all
+
+<Files index.php>
+    Allow from all
+</Files>

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Check the user before running the command
+if [ `id | sed -e s/uid=//g -e s/\(.*//g` -ne 0 ]; then
+    echo "Please run this script using admin privileges (as root user or using sudo). This way, it will use the proper user to run the Magento's command" >> /dev/stderr
+    exit 1
+fi
+# Run the Magento's commands using the web servers' user and group
+su daemon -s /bin/bash -c "/opt/bitnami/php/bin/php /opt/bitnami/apps/magento/htdocs/bin/magento $*"
