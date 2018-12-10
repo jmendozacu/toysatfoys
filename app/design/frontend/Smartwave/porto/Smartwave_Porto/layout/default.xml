@@ -27,6 +27,12 @@
                 <block class="Smartwave\Porto\Block\Template" name="custom_block" template="html/header_custom_block.phtml" ifconfig="porto_settings/header/static_block" after="-"/>
             </block>
         </referenceContainer>
+        <referenceContainer name="page.wrapper">
+            <container name="main_wrapper" htmlTag="div" htmlClass="container" after="porto_header" />
+        </referenceContainer>
+        <move element="breadcrumbs" destination="main_wrapper" before="main.content"/>
+        <move element="main.content" destination="main_wrapper"/>
+
         <move element="navigation.sections" destination="porto_header"/>
         <move element="top.search" destination="porto_header"/>
         <move element="minicart" destination="porto_header"/>

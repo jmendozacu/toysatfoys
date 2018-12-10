@@ -115,13 +115,16 @@
     </div>
     <div class="header content">
         <?php echo $this->getChildHtml("logo"); ?>
-        <?php echo $this->getChildHtml("minicart"); ?>
+        
         <div class="search-area">
             <a href="javascript:void(0)" class="search-toggle-icon"><i class="porto-icon-search"></i></a>
             <?php echo $this->getChildHtml("top.search"); ?>
         </div>
-        <?php echo $this->getChildHtml("custom_block"); ?>
-        <?php echo $this->getChildHtml("navigation.sections"); ?>
+        <?php echo $this->getChildHtml("minicart"); ?>
+        <?php //echo $this->getChildHtml("custom_block"); ?>
+    </div>
+    <div class="container">
+     <?php echo $this->getChildHtml("navigation.sections"); ?>
     </div>
 <?php elseif($header_type == 7 || $header_type == 23 ): ?>
     <div class="panel wrapper">

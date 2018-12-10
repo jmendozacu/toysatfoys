@@ -17,8 +17,10 @@
         <css src="icon-fonts/css/porto-icons-codes.css" />
         <css src="icon-fonts/css/animation.css" />
         <css src="css/custom.css" />
+        <css src="css/sgscustom.css" order="100"/>
         <script src="jquery.js" />
         <script src="bootstrap/js/bootstrap.min.js" />
         <script src="fancybox/js/jquery.fancybox.js" />
+        <script src="js/theme.js" />
     </head>
 </page>
