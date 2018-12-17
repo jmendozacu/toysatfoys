@@ -1,0 +1,116 @@
+<div class="single-images">
+    <div class="row" style="margin-left:-10px;margin-right:-10px;">
+        <div class="col-sm-4" style="padding:10px">
+            <div class="single-image-label">SHOP BABY DOLLS</div>
+            <a class="image-link" href="#">
+               <img src="{{media url="wysiwyg/smartwave/porto/homebanner/contentbanner/Dolls.jpg"}}" alt="" />
+            </a>
+            <div class="caption">BABY DOLLS STARTING AT $4.99</div>
+        </div>
+        <div class="col-sm-4" style="padding:10px">
+            <div class="single-image-label">SHOP ART & CRAFT</div>
+            <a class="image-link" href="#">
+                <img src="{{media url="wysiwyg/smartwave/porto/homebanner/contentbanner/Arts_and_Crafts.jpg"}}" alt="" />
+            </a>
+            <div class="caption">ART & CRAFT STARTING AT $9.99</div>
+        </div>
+        <div class="col-sm-4" style="padding:10px">
+            <div class="single-image-label">SHOP TOY</div>
+            <a class="image-link" href="#">
+                <img src="{{media url="wysiwyg/smartwave/porto/homebanner/contentbanner/Lego.jpg"}}" alt="" />
+            </a>
+            <div class="caption">TOY STARTING AT $2.99</div>
+        </div>
+     </div>
+</div>
+<div style="padding-top: 20px;">
+    <h2 class="filterproduct-title" style="background-image:none;font-size:17px;text-transform:none;color:#828385;font-weight:600;"><span class="content"><strong>Top Selling Toys</strong></span></h2>
+    <div id="featured_product" class="owl-top-narrow hide-addtolinks">
+        {{block class="Smartwave\Filterproducts\Block\Home\FeaturedList" name="featured_product" product_count="10" move_actions="1" aspect_ratio="0" image_width="212" image_height="263" template="owl_list.phtml"}}
+    </div>
+    <script type="text/javascript">
+        require([
+            'jquery',
+            'owl.carousel/owl.carousel.min'
+        ], function ($) {
+            $("#featured_product .owl-carousel").owlCarousel({
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                loop: true,
+                navRewind: true,
+                margin: 10,
+                nav: true,
+                navText: ["<em class='porto-icon-left-open-huge'></em>","<em class='porto-icon-right-open-huge'></em>"],
+                dots: false,
+                responsive: {
+                    0: {
+                        items:2
+                    },
+                    768: {
+                        items:3
+                    },
+                    992: {
+                        items:4
+                    },
+                    1200: {
+                        items:5
+                    }
+                }
+            });
+        });
+    </script>
+</div>
+<div id="brands-slider-demo-18" class="brands-slider" style="padding-top: 50px;">
+    <div class="owl-carousel">
+        <div class="item" style="padding-top:10px;"><img src="{{media url="wysiwyg/smartwave/porto/brands/brand1.png"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img src="{{media url="wysiwyg/smartwave/porto/brands/brand2.png"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img src="{{media url="wysiwyg/smartwave/porto/brands/brand3.png"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img src="{{media url="wysiwyg/smartwave/porto/brands/brand4.png"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img src="{{media url="wysiwyg/smartwave/porto/brands/brand5.png"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img src="{{media url="wysiwyg/smartwave/porto/brands/brand1.png"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img src="{{media url="wysiwyg/smartwave/porto/brands/brand2.png"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img src="{{media url="wysiwyg/smartwave/porto/brands/brand3.png"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img src="{{media url="wysiwyg/smartwave/porto/brands/brand4.png"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img src="{{media url="wysiwyg/smartwave/porto/brands/brand5.png"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img src="{{media url="wysiwyg/smartwave/porto/brands/brand1.png"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img src="{{media url="wysiwyg/smartwave/porto/brands/brand2.png"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img src="{{media url="wysiwyg/smartwave/porto/brands/brand3.png"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img src="{{media url="wysiwyg/smartwave/porto/brands/brand4.png"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img src="{{media url="wysiwyg/smartwave/porto/brands/brand5.png"}}" alt="" /></div>
+    </div>
+    <script type="text/javascript">
+        require([
+            'jquery',
+            'owl.carousel/owl.carousel.min'
+        ], function ($) {
+            $("#brands-slider-demo-18 .owl-carousel").owlCarousel({
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                margin: 30,
+                nav: false,
+                navText: ["<em class='porto-icon-left-open-huge'></em>","<em class='porto-icon-right-open-huge'></em>"],
+                dots: true,
+                loop: true,
+                responsive: {
+                    0: {
+                        items:2
+                    },
+                    640: {
+                        items:3
+                    },
+                    768: {
+                        items:4
+                    },
+                    992: {
+                        items:5
+                    },
+                    1200: {
+                        items:6
+                    }
+                }
+            });
+        });
+    </script>
+</div>
