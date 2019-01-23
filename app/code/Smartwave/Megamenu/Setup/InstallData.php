@@ -189,7 +189,58 @@ class InstallData implements InstallDataInterface
                 'is_html_allowed_on_front' => true,
                 'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
                 'group' => 'SW Menu'
-            ]
+            ],
+            'sw_ocat_hide_this_item' => [
+                    'type' => 'int',
+                    'label' => 'Hide This Category',
+                    'input' => 'select',
+                    'source' => 'Magento\Eav\Model\Entity\Attribute\Source\Boolean',
+                    'required' => false,
+                    'sort_order' => 10,
+                    'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
+                    'group' => 'Onepage Category'
+                ],
+                'sw_ocat_category_icon_image' => [
+                    'type' => 'varchar',
+                    'label' => 'Icon Image',
+                    'input' => 'image',
+                    'backend' => 'Magento\Catalog\Model\Category\Attribute\Backend\Image',
+                    'required' => false,
+                    'sort_order' => 20,
+                    'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
+                    'group' => 'Onepage Category'
+                ],
+                'sw_ocat_category_font_icon' => [
+                    'type' => 'varchar',
+                    'label' => 'Font Icon Class',
+                    'input' => 'text',
+                    'required' => false,
+                    'sort_order' => 30,
+                    'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
+                    'group' => 'Onepage Category',
+                    'note' => 'If this category has no "Icon Image", font icon will be shown. example to input: icon-dollar'
+                ],
+                'sw_ocat_category_hoverbgcolor' => [
+                    'type' => 'varchar',
+                    'label' => 'Category Hover Background Color',
+                    'input' => 'text',
+                    'required' => false,
+                    'sort_order' => 40,
+                    'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
+                    'group' => 'Onepage Category',
+                    'note' => 'eg: #00d59d'
+                ],
+                'sw_ocat_additional_content' => [
+                    'type' => 'text',
+                    'label' => 'Additional Content',
+                    'input' => 'textarea',
+                    'required' => false,
+                    'sort_order' => 50,
+                    'wysiwyg_enabled' => true,
+                    'is_html_allowed_on_front' => true,
+                    'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
+                    'group' => 'Onepage Category'
+                ]
         ];
         
         foreach($menu_attributes as $item => $data) {

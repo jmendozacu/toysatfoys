@@ -105,7 +105,8 @@
         <?php echo $this->getChildHtml("navigation.sections"); ?>
     </div>
 <?php elseif($header_type == 6 || $header_type == 19): ?>
-    <div class="panel wrapper">
+    <?php /* ?>
+	<div class="panel wrapper">
         <div class="panel header">
             <?php echo $this->getChildHtml("skip_to_content"); ?>
             <?php echo $this->getChildHtml("currency"); ?>
@@ -113,19 +114,46 @@
             <?php echo $this->getChildHtml("header.links"); ?>
         </div>
     </div>
-    <div class="header content">
-        <?php echo $this->getChildHtml("logo"); ?>
-        
-        <div class="search-area">
-            <a href="javascript:void(0)" class="search-toggle-icon"><i class="porto-icon-search"></i></a>
-            <?php echo $this->getChildHtml("top.search"); ?>
-        </div>
-        <?php echo $this->getChildHtml("minicart"); ?>
-        <?php //echo $this->getChildHtml("custom_block"); ?>
+	<?php */ ?>
+	<div class="header-top-type-6">
+	<div class="container">
+		<div class="header content">
+			<nav class="navbar">
+			  <div class="container-fluid">
+				<!--div class="navbar-header">
+				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+				  <span class="navbar-brand"></span>
+				</div-->
+                <?php echo $this->getChildHtml("logo"); ?>
+				<!--div class="navbar-form navbar-left search-area">
+					
+				</div-->
+				<ul class="nav navbar-nav custom-nav">
+                    <li><?php echo $this->getChildHtml("top.search"); ?></li>
+					<li><a href="<?php echo $this->getUrl('contact'); ?>"><i class="porto-icon-phone"></i><span class="hidden-xs">Contact Us</span></a></li>
+					<li class="dropdown">
+					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="porto-icon-user"></i><span class="hidden-xs"> Account</span><span class="caret"></span></a>
+					  <ul class="dropdown-menu">
+						<li><a href="<?php echo $this->getUrl('customer/account/login/'); ?>">Sign in</a></li>
+						<li><a href="<?php echo $this->getUrl('customer/account/create/'); ?>">Sign up</a></li>           
+					  </ul>
+					</li>
+					<li class="cart-link"><?php echo $this->getChildHtml("minicart"); ?></li>
+				</ul>
+			  </div>
+			</nav>		
+			<?php //echo $this->getChildHtml("custom_block"); ?>
+		</div>
     </div>
-    <div class="container">
-     <?php echo $this->getChildHtml("navigation.sections"); ?>
-    </div>
+	</div>
+	<div class="container toysatfoys-color">
+		<?php echo $this->getChildHtml("navigation.sections"); ?>
+	</div>
 <?php elseif($header_type == 7 || $header_type == 23 ): ?>
     <div class="panel wrapper">
         <div class="panel header">

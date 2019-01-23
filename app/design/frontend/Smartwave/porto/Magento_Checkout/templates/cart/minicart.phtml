@@ -12,7 +12,7 @@
 <div data-block="minicart" class="minicart-wrapper">
     <a class="action showcart" href="<?php echo $block->getShoppingCartUrl(); ?>"
        data-bind="scope: 'minicart_content'">
-        <span class="text"><?php echo __('My Cart'); ?></span>
+        
         <span class="counter qty empty"
               data-bind="css: { empty: !!getCartParam('summary_count') == false }, blockLoader: isLoading">
             <span class="counter-number">
@@ -23,7 +23,9 @@
                 <!-- ko i18n: 'items' --><!-- /ko -->
             </span>
         </span>
+        <span class=" carttext hidden-xs"><?php echo __('My Cart'); ?></span>
     </a>
+
     <?php if ($block->getIsNeedToDisplaySideBar()): ?>
         <div class="block block-minicart empty"
              data-role="dropdownDialog"

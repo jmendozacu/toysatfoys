@@ -4,7 +4,7 @@
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mageplaza.com license that is
+ * This source file is subject to the mageplaza.com license that is
  * available through the world-wide-web at this URL:
  * https://www.mageplaza.com/LICENSE.txt
  *
@@ -15,9 +15,10 @@
  *
  * @category    Mageplaza
  * @package     Mageplaza_Core
- * @copyright   Copyright (c) 2016 Mageplaza (http://www.mageplaza.com/)
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
+
 namespace Mageplaza\Core\Controller\Adminhtml\Index;
 
 /**
@@ -26,41 +27,16 @@ namespace Mageplaza\Core\Controller\Adminhtml\Index;
  */
 class Userguide extends \Magento\Backend\App\Action
 {
-	/**
-	 * @var \Magento\Framework\View\Result\PageFactory
-	 */
-	protected $resultPageFactory;
+    /**
+     * Authorization level of a basic admin session
+     */
+    const ADMIN_RESOURCE = 'Mageplaza_Core::userguide';
 
-	/**
-	 * @param \Magento\Backend\App\Action\Context $context
-	 * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
-	 */
-	public function __construct(
-		\Magento\Backend\App\Action\Context $context,
-		\Magento\Framework\View\Result\PageFactory $resultPageFactory
-	)
-	{
-		$this->resultPageFactory = $resultPageFactory;
-
-		parent::__construct($context);
-	}
-
-	public function execute()
-	{
-		/** @var \Magento\Backend\Model\View\Result\Page $resultPage */
-		$resultPage = $this->resultPageFactory->create();
-
-		return $resultPage;
-
-	}
-
-	/**
-	 * Check for is allowed
-	 *
-	 * @return boolean
-	 */
-	protected function _isAllowed()
-	{
-		return $this->_authorization->isAllowed('Mageplaza_Core::userguide');
-	}
+    /**
+     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface|void
+     */
+    public function execute()
+    {
+        $this->_response->setRedirect('https://docs.mageplaza.com/?utm_source=configuration&utm_medium=link&utm_content=user-guide');
+    }
 }

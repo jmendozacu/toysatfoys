@@ -51,6 +51,16 @@
                 </item>
             </argument>
         </field>
+        <field name="sw_menu_class">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">30</item>
+                    <item name="dataType" xsi:type="string">string</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="label" xsi:type="string" translate="true"> Menu Item CSS Class</item>
+                </item>
+            </argument>
+        </field>
         <field name="sw_menu_cat_columns">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">

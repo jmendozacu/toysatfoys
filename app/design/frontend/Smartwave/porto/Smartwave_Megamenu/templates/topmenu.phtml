@@ -24,6 +24,21 @@
 <nav class="navigation sw-megamenu <?php if($header_type == 8 || $header_type == 10 || $header_type == 25): ?>side-megamenu<?php endif; ?>" role="navigation">
     <ul>
         <?php echo $_menu; ?>
+		<li class="ui-menu-item level0 fullwidth parent">
+            <a href="" class="level-top orangebg"><span>By price</span></a>
+        </li>
+        <li class="ui-menu-item level0 fullwidth parent">
+            <a href="" class="level-top bananabg"><span>By Age</span></a>
+        </li>
+        <li class="ui-menu-item level0 fullwidth">
+            <a href="<?php echo $this->getUrl('sale');?>" class="level-top greenbg"><span>Clearance</span></a>
+        </li>
+        <li class="ui-menu-item level0 fullwidth">
+            <a href="<?php echo $this->getUrl('popular');?>" class="level-top skybluebg"><span>Popular toys</span></a>
+        </li>
+        <li class="ui-menu-item level0 fullwidth">
+            <a href="<?php echo $this->getUrl('new-launch');?>" class="level-top violetbg"><span>What's New</span></a>
+        </li>
     </ul>
 </nav>
 

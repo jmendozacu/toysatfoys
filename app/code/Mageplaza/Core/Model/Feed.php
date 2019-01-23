@@ -4,7 +4,7 @@
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mageplaza.com license that is
+ * This source file is subject to the mageplaza.com license that is
  * available through the world-wide-web at this URL:
  * https://www.mageplaza.com/LICENSE.txt
  *
@@ -15,9 +15,10 @@
  *
  * @category    Mageplaza
  * @package     Mageplaza_Core
- * @copyright   Copyright (c) 2016 Mageplaza (http://www.mageplaza.com/)
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
+
 namespace Mageplaza\Core\Model;
 
 /**
@@ -40,7 +41,48 @@ class Feed extends \Magento\AdminNotification\Model\Feed
         if ($this->_feedUrl === null) {
             $this->_feedUrl = $httpPath . self::MAGEPLAZA_FEED_URL;
         }
+
         return $this->_feedUrl;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function checkUpdate()
+    {
+        if (!(boolean)$this->_backendConfig->getValue('mageplaza/general/notice_enable')) {
+            return $this;
+        }
+
+        return parent::checkUpdate();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getFeedData()
+    {
+        $type = $this->_backendConfig->getValue('mageplaza/general/notice_type');
+        if (!$type) {
+            return false;
+        }
+
+        $feedXml = parent::getFeedData();
+        if ($feedXml && $feedXml->channel && $feedXml->channel->item) {
+            $typeArray    = explode(',', $type);
+            $noteToRemove = [];
+
+            foreach ($feedXml->channel->item as $item) {
+                if (!in_array((string)$item->type, $typeArray)) {
+                    $noteToRemove[] = $item;
+                }
+            }
+            foreach ($noteToRemove as $item) {
+                unset($item[0]);
+            }
+        }
+
+        return $feedXml;
     }
 
     /**
@@ -57,7 +99,7 @@ class Feed extends \Magento\AdminNotification\Model\Feed
     public function setLastUpdate()
     {
         $this->_cacheManager->save(time(), 'mageplaza_notifications_lastcheck');
+
         return $this;
     }
-
 }

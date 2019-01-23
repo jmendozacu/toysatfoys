@@ -4,7 +4,7 @@
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mageplaza.com license that is
+ * This source file is subject to the mageplaza.com license that is
  * available through the world-wide-web at this URL:
  * https://www.mageplaza.com/LICENSE.txt
  *
@@ -15,9 +15,10 @@
  *
  * @category    Mageplaza
  * @package     Mageplaza_Core
- * @copyright   Copyright (c) 2016 Mageplaza (http://www.mageplaza.com/)
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
+
 namespace Mageplaza\Core\Block\Adminhtml\System\Config;
 
 /**
@@ -26,52 +27,32 @@ namespace Mageplaza\Core\Block\Adminhtml\System\Config;
  */
 class Head extends \Magento\Config\Block\System\Config\Form\Field
 {
-	/**
-	 * @param \Magento\Backend\Block\Template\Context $context
-	 * @param array $data
-	 */
-	public function __construct(
-		\Magento\Backend\Block\Template\Context $context,
-		array $data = []
-	) {
-		parent::__construct($context, $data);
-	}
+    /**
+     * Render text
+     *
+     * @param \Magento\Framework\Data\Form\Element\AbstractElement $element
+     * @return string
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
+    public function render(\Magento\Framework\Data\Form\Element\AbstractElement $element)
+    {
+        $html = '';
+        if ($element->getComment()) {
+            $html .= '<div style="margin: auto; width: 40%;padding: 10px;">' . $element->getComment() . '</div>';
+        }
 
-	/**
-	 * Set template
-	 *
-	 * @return void
-	 */
-	protected function _construct()
-	{
-		parent::_construct();
-	}
+        return $html;
+    }
 
-	/**
-	 * Render text
-	 *
-	 * @param  \Magento\Framework\Data\Form\Element\AbstractElement $element
-	 * @return string
-	 */
-	public function render(\Magento\Framework\Data\Form\Element\AbstractElement $element)
-	{
-		$html = '';
-		if ($element->getComment()) {
-			$html .= '<div style="margin: auto; width: 40%;padding: 10px;">' . $element->getComment() . '</div>';
-		}
-
-		return $html;
-	}
-
-	/**
-	 * Return element html
-	 *
-	 * @param  \Magento\Framework\Data\Form\Element\AbstractElement $element
-	 * @return string
-	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
-	 */
-	protected function _getElementHtml(\Magento\Framework\Data\Form\Element\AbstractElement $element)
-	{
-		return $this->_toHtml();
-	}
+    /**
+     * Return element html
+     *
+     * @param  \Magento\Framework\Data\Form\Element\AbstractElement $element
+     * @return string
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
+    protected function _getElementHtml(\Magento\Framework\Data\Form\Element\AbstractElement $element)
+    {
+        return $this->_toHtml();
+    }
 }

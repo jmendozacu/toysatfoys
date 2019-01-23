@@ -4,7 +4,7 @@
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Mageplaza.com license that is
+ * This source file is subject to the mageplaza.com license that is
  * available through the world-wide-web at this URL:
  * https://www.mageplaza.com/LICENSE.txt
  *
@@ -15,12 +15,16 @@
  *
  * @category    Mageplaza
  * @package     Mageplaza_Core
- * @copyright   Copyright (c) 2016 Mageplaza (http://www.mageplaza.com/)
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
+
 namespace Mageplaza\Core\Observer;
 
+use Magento\Backend\Model\Auth\Session;
+use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
+use Mageplaza\Core\Helper\AbstractData;
 
 /**
  * Class PredispatchAdminActionControllerObserver
@@ -28,38 +32,41 @@ use Magento\Framework\Event\ObserverInterface;
  */
 class PredispatchAdminActionControllerObserver implements ObserverInterface
 {
-	/**
-	 * @type \Mageplaza\Core\Model\FeedFactory
-	 */
-	protected $_feedFactory;
+    /**
+     * @type Session
+     */
+    protected $_backendAuthSession;
 
-	/**
-	 * @type \Magento\Backend\Model\Auth\Session
-	 */
-	protected $_backendAuthSession;
+    /**
+     * @var AbstractData
+     */
+    protected $helper;
 
-	/**
-	 * @param \Mageplaza\Core\Model\FeedFactory $feedFactory
-	 * @param \Magento\Backend\Model\Auth\Session $backendAuthSession
-	 */
-	public function __construct(
-		\Mageplaza\Core\Model\FeedFactory $feedFactory,
-		\Magento\Backend\Model\Auth\Session $backendAuthSession
-	)
-	{
-		$this->_feedFactory        = $feedFactory;
-		$this->_backendAuthSession = $backendAuthSession;
-	}
+    /**
+     * PredispatchAdminActionControllerObserver constructor.
+     * @param Session $backendAuthSession
+     * @param AbstractData $helper
+     */
+    public function __construct(
+        Session $backendAuthSession,
+        AbstractData $helper
+    )
+    {
+        $this->_backendAuthSession = $backendAuthSession;
+        $this->helper = $helper;
+    }
 
-	/**
-	 * @param \Magento\Framework\Event\Observer $observer
-	 */
-	public function execute(\Magento\Framework\Event\Observer $observer)
-	{
-		if ($this->_backendAuthSession->isLoggedIn()) {
-			/* @var $feedModel \Mageplaza\Core\Model\Feed */
-			$feedModel = $this->_feedFactory->create();
-			$feedModel->checkUpdate();
-		}
-	}
+    /**
+     * @param Observer $observer
+     */
+    public function execute(Observer $observer)
+    {
+        if ($this->_backendAuthSession->isLoggedIn()
+            && $this->helper->isModuleOutputEnabled('Magento_AdminNotification')
+        ) {
+            /* @var $feedModel \Mageplaza\Core\Model\Feed */
+            $feedModel = $this->helper->createObject(\Mageplaza\Core\Model\Feed::class);
+            $feedModel->checkUpdate();
+        }
+    }
 }
